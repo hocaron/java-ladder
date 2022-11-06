@@ -15,6 +15,25 @@ public class Ladder implements Iterable<Line> {
 			.forEach(count-> ladder.add(new Line(length)));
 	}
 
+	public Integer executeByNumber(int number) {
+		int currentNumber = number;
+		for (Line line : ladder) {
+			currentNumber = getNextNumber(currentNumber, line);
+		}
+		return currentNumber;
+	}
+
+	private Integer getNextNumber(int currentNumber, Line line) {
+		if (line.hasLeftLine(currentNumber)) {
+			currentNumber -= 1;
+		}
+
+		if (line.hasRightLine(currentNumber)) {
+			currentNumber += 1;
+		}
+		return currentNumber;
+	}
+
 	@Override
 	public Iterator<Line> iterator() {
 		return ladder.iterator();

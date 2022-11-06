@@ -5,8 +5,8 @@ import nextstep.ladder.domain.participant.Participants;
 
 public class OutputView {
 
-	public void printResult(Participants participants, Ladder ladder) {
-		System.out.println("실행결과");
+	public void printLadder(Participants participants, Ladder ladder) {
+		System.out.println("사다리 결과");
 
 		participants.forEach(participant -> System.out.print(participant + "  "));
 		System.out.println();
@@ -14,5 +14,10 @@ public class OutputView {
 		ladder.forEach(line -> {
 			System.out.println(line.getLine());
 		});
+	}
+
+	public void printResult() {
+		System.out.println("실행 결과");
+
 	}
 }
